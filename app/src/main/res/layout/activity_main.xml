@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/result"
+            android:onClick="result"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="пока результата нет"
+            android:textSize="24sp"
+            android:id="@+id/TwResult"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/ETinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/from"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ButInDex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="InToDex"
+            android:text="@string/dex" />
+
+        <Button
+            android:id="@+id/ButInHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="InToHex"
+            android:text="@string/hex" />
+
+        <Button
+            android:id="@+id/ButInOct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="InToOct"
+            android:text="@string/oct" />
+
+        <Button
+            android:id="@+id/ButInBin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="InToBin"
+            android:text="@string/bin" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/to"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ButOutDex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="OutToDex"
+            android:text="@string/dex" />
+
+        <Button
+            android:id="@+id/ButOutHex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="OutToHex"
+            android:text="@string/hex" />
+
+        <Button
+            android:id="@+id/ButOutOct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="OutToOct"
+            android:text="@string/oct" />
+
+        <Button
+            android:id="@+id/ButOutBin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFD4D5D6"
+            android:onClick="OutToBin"
+            android:text="@string/bin" />
+    </LinearLayout>
+
+
+</LinearLayout>
