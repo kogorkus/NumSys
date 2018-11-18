@@ -3,35 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/result"
-            android:onClick="result"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="пока результата нет"
-            android:textSize="24sp"
-            android:id="@+id/TwResult"/>
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/ETinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/input" />
 
     <TextView
         android:layout_width="match_parent"
@@ -41,7 +15,7 @@
         android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -87,7 +61,7 @@
         android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -123,6 +97,37 @@
             android:background="#FFD4D5D6"
             android:onClick="OutToBin"
             android:text="@string/bin" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/ETinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/input"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Результат:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TwResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="пока результата нет"
+            android:textSize="24sp" />
+
     </LinearLayout>
 
 

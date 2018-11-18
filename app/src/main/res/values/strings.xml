@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">NumSys</string>
     <string name="result">Result:</string>
-    <string name="from">из</string>
+    <string name="from">исходная система счисления</string>
     <string name="input">введите число</string>
     <string name="dex">dex</string>
     <string name="hex">hex</string>
     <string name="oct">oct</string>
     <string name="bin">bin</string>
-    <string name="to">в</string>
+    <string name="to">система счисления ответа</string>
 </resources>

@@ -2,7 +2,10 @@ package com.example.kogorkus.numsys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,8 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button[] buttonsIn = new Button[4];
     Button[] buttonsOut = new Button[4];
-    Boolean[] Input = new Boolean[4];
-    Boolean[] Output = new Boolean[4];
+    int SystemIn =-1, SystemOut=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,11 @@ public class MainActivity extends AppCompatActivity {
         buttonsOut[1] = findViewById(R.id.ButOutHex);
         buttonsOut[2] = findViewById(R.id.ButOutOct);
         buttonsOut[3] = findViewById(R.id.ButOutBin);
+        EditText edit = (EditText)findViewById(R.id.ETinput);
+        edit.addTextChangedListener(inputTW);
     }
+
+    //region ButtonMethods
 
     public void InToDex(View view) {
 
@@ -61,98 +67,92 @@ public class MainActivity extends AppCompatActivity {
     public void OutToOct(View view) {
         ChangeColorOut(2);
     }
+
+    //endregion
+
     public void ChangeColorIn(int number)
     {
         for (int i = 0; i < 4; i++)
         {
              buttonsIn[i].setBackgroundColor(0xFFD4D5D6);
-             Input[i] = false;
         }
         buttonsIn[number].setBackgroundColor(0xFF00FF00);
-        Input[number] = true;
+        SystemIn = number;
+        EditText edit = (EditText)findViewById(R.id.ETinput);
+        edit.setText(edit.getText().toString());
     }
+
     public void ChangeColorOut(int number)
     {
         for (int i = 0; i < 4; i++)
         {
             buttonsOut[i].setBackgroundColor(0xFFD4D5D6);
-            Output[i] = false;
         }
         buttonsOut[number].setBackgroundColor(0xFF00FF00);
-        Output[number] = true;
-    }
-
-    public void result(View view) {
+        SystemOut = number;
         EditText edit = (EditText)findViewById(R.id.ETinput);
-        String InputStr = edit.getText().toString();
-        InputStr = InputStr.toUpperCase();
-        String OutputStr = "";
-        String Calculatable = "";
-        int sys1 = -1, sys2 = -1;
-        for (int i = 0; i < 4; i ++)
-        {
-            if(Input[i]) sys1 = i;
-            if(Output[i]) sys2 = i;
-        }
-        if(sys1 == 3) Calculatable = InputStr;
-        if(sys1 == 0)
-        {
-            int temp = Integer.parseInt(InputStr);
-            while (temp >= 1) {
-                Calculatable = (temp % 2) + Calculatable;
-                temp /= 2;
-            }
-        }
-        if(sys1 == 1)
-        {
-            for(int i = 0; i < InputStr.length(); i++)
-            {
-                if(InputStr.charAt(i) == '1' ) Calculatable += "0001";
-                if(InputStr.charAt(i) == '2' ) Calculatable += "0010";
-                if(InputStr.charAt(i) == '3' ) Calculatable += "0011";
-                if(InputStr.charAt(i) == '4' ) Calculatable += "0100";
-                if(InputStr.charAt(i) == '5' ) Calculatable += "0101";
-                if(InputStr.charAt(i) == '6' ) Calculatable += "0110";
-                if(InputStr.charAt(i) == '7' ) Calculatable += "0111";
-                if(InputStr.charAt(i) == '8' ) Calculatable += "1000";
-                if(InputStr.charAt(i) == '9' ) Calculatable += "1001";
-                if(InputStr.charAt(i) == 'A' ) Calculatable += "1010";
-                if(InputStr.charAt(i) == 'B' ) Calculatable += "1011";
-                if(InputStr.charAt(i) == 'C' ) Calculatable += "1100";
-                if(InputStr.charAt(i) == 'D' ) Calculatable += "1101";
-                if(InputStr.charAt(i) == 'E' ) Calculatable += "1110";
-                if(InputStr.charAt(i) == 'F' ) Calculatable += "1111";
-                if(InputStr.charAt(i) == '0' ) Calculatable += "0000";
-            }
-        }
-        if(sys1 == 2)
-        {
-            for(int i = 0; i < InputStr.length(); i++)
-            {
-                if(InputStr.charAt(i) == '1' ) Calculatable += "001";
-                if(InputStr.charAt(i) == '2' ) Calculatable += "010";
-                if(InputStr.charAt(i) == '3' ) Calculatable += "011";
-                if(InputStr.charAt(i) == '4' ) Calculatable += "100";
-                if(InputStr.charAt(i) == '5' ) Calculatable += "101";
-                if(InputStr.charAt(i) == '6' ) Calculatable += "110";
-                if(InputStr.charAt(i) == '7' ) Calculatable += "111";
-                if(InputStr.charAt(i) == '0' ) Calculatable += "000";
-            }
-        }
-        if(sys2 == 0)
-        {
-            int temp = 0;
-            for(int i = 0; i < Calculatable.length(); i++)
-            {
-                if(Calculatable.charAt(i) == '1') temp += Math.pow(2, Calculatable.length() - i - 1);
-            }
-            OutputStr = Integer.toString(temp);
-        }
-        if(sys2 == 3) OutputStr = Calculatable;
-        TextView tview = (TextView)findViewById(R.id.TwResult);
-        tview.setText(OutputStr);
-
-
-
+        edit.setText(edit.getText().toString());
     }
+
+
+
+
+    TextWatcher inputTW = new TextWatcher() {
+
+        public void afterTextChanged(Editable s) {
+            EditText edit = (EditText)findViewById(R.id.ETinput);
+            String InputStr = edit.getText().toString();
+            String OutputStr = "";
+            InputStr = InputStr.toUpperCase();
+            int Calculatable = 0;
+
+            int BaseOfInSys = -1;
+            if(SystemIn == 0) BaseOfInSys = 10;
+            if(SystemIn == 1) BaseOfInSys = 16;
+            if(SystemIn == 2) BaseOfInSys = 8;
+            if(SystemIn == 3) BaseOfInSys = 2;
+
+
+
+            int[] CalculatableArr = new int[InputStr.length()];
+            for(int i = 0; i < InputStr.length(); i++)
+            {
+                if(InputStr.charAt(i) == 'A') CalculatableArr[i] = 10;
+                if(InputStr.charAt(i) == 'B') CalculatableArr[i] = 11;
+                if(InputStr.charAt(i) == 'C') CalculatableArr[i] = 12;
+                if(InputStr.charAt(i) == 'D') CalculatableArr[i] = 13;
+                if(InputStr.charAt(i) == 'E') CalculatableArr[i] = 14;
+                if(InputStr.charAt(i) == 'F') CalculatableArr[i] = 15;
+                else CalculatableArr[i] =  Character.getNumericValue(InputStr.charAt(i));
+            }
+            for(int i = 0; i < CalculatableArr.length; i++)
+            {
+                Calculatable += CalculatableArr[i] * Math.pow(BaseOfInSys, CalculatableArr.length - i -1);
+            }
+            String str = "";
+            for (int i = 0; i < InputStr.length(); i++)
+            {
+                str += CalculatableArr[i] + " ";
+            }
+
+            if(SystemOut == 0) OutputStr = Integer.toString(Calculatable);
+            if(SystemOut == 1) OutputStr = Integer.toHexString(Calculatable);
+            if(SystemOut == 2) OutputStr = Integer.toOctalString(Calculatable);
+            if(SystemOut == 3) OutputStr = Integer.toBinaryString(Calculatable);
+            OutputStr = OutputStr.toUpperCase();
+            TextView tview = (TextView)findViewById(R.id.TwResult);
+            tview.setText(OutputStr);
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after){
+
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+    };
+
+
 }
