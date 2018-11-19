@@ -8,4 +8,8 @@
     <string name="oct">oct</string>
     <string name="bin">bin</string>
     <string name="to">система счисления ответа</string>
+    <string name="calculator">Calculator</string>
+    <string name="converter_pro">Converter Pro</string>
+    <string name="NoResult">пока результата нет</string>
+    <string name="NewResult">Результат:</string>
 </resources>

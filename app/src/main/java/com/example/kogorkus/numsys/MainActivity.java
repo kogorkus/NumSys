@@ -1,5 +1,6 @@
 package com.example.kogorkus.numsys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -155,4 +156,13 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    public void StartSecondAct(View view) {
+        Intent SecAct = new Intent(getApplicationContext(), ThirdActivity.class);
+        startActivity(SecAct);
+    }
+
+    public void StartThirdAct(View view) {
+        Intent SecAct = new Intent(getApplicationContext(), ThirdActivity.class);
+        startActivity(SecAct);
+    }
 }

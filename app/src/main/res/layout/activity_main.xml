@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -100,13 +100,19 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/ETinput"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/input"
-        android:textSize="24sp" />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ETinput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/input"
+            android:textSize="24sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -118,16 +124,39 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Результат:"
+            android:text="@string/NewResult"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/TwResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="пока результата нет"
+            android:text="@string/NoResult"
             android:textSize="24sp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="StartSecondAct"
+            android:text="@string/converter_pro" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="StartThirdAct"
+            android:text="@string/calculator" />
     </LinearLayout>
 
 
