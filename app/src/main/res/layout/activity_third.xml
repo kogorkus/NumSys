@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d4eefe"
     android:orientation="vertical"
     tools:context=".ThirdActivity">
 
@@ -13,33 +14,96 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtViewInput"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="2" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="исходная система счисления "
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/txtViewInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2 "
+                android:textSize="22sp" />
+        </LinearLayout>
 
         <SeekBar
             android:id="@+id/seekBarInput"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:max="14"
+            android:padding="15dp"
             android:progress="0" />
 
-        <TextView
-            android:id="@+id/txtViewOutput"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="2" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="система счисления ответа "
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/txtViewOutput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="2 "
+                android:textSize="22sp" />
+        </LinearLayout>
 
         <SeekBar
             android:id="@+id/seekBarOutput"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:max="14"
+            android:padding="15dp"
             android:progress="0" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextPro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/input"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TVOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/NoResult"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 </LinearLayout>

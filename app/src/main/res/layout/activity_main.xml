@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d4eefe"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,7 +25,7 @@
             android:id="@+id/ButInDex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#FF6CA7F4"
             android:onClick="InToDex"
             android:text="@string/dex" />
 
@@ -32,7 +33,7 @@
             android:id="@+id/ButInHex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="InToHex"
             android:text="@string/hex" />
 
@@ -40,7 +41,7 @@
             android:id="@+id/ButInOct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="InToOct"
             android:text="@string/oct" />
 
@@ -48,7 +49,7 @@
             android:id="@+id/ButInBin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="InToBin"
             android:text="@string/bin" />
     </LinearLayout>
@@ -70,7 +71,7 @@
             android:id="@+id/ButOutDex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#6da8f5"
             android:onClick="OutToDex"
             android:text="@string/dex" />
 
@@ -78,7 +79,7 @@
             android:id="@+id/ButOutHex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="OutToHex"
             android:text="@string/hex" />
 
@@ -86,7 +87,7 @@
             android:id="@+id/ButOutOct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="OutToOct"
             android:text="@string/oct" />
 
@@ -94,7 +95,7 @@
             android:id="@+id/ButOutBin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFD4D5D6"
+            android:background="#a4c4f4"
             android:onClick="OutToBin"
             android:text="@string/bin" />
 
@@ -109,7 +110,9 @@
             android:id="@+id/ETinput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
             android:hint="@string/input"
             android:textSize="24sp" />
     </LinearLayout>
@@ -146,7 +149,9 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1"
+            android:background="#a4c4f4"
             android:onClick="StartSecondAct"
             android:text="@string/converter_pro" />
 
@@ -154,7 +159,9 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1"
+            android:background="#a4c4f4"
             android:onClick="StartThirdAct"
             android:text="@string/calculator" />
     </LinearLayout>
